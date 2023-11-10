@@ -1,5 +1,5 @@
-Severnoe 725.5 34.5
-Chernoe 2210.2 18.7
-Azovskoe 13.5 12.2
-Baltiyskoe 470.0 6.6
-Barencevo 628.1 34.7
+"Chernoe Beloe" 2210.2 18.7 Okun Som Lesch Igor
+"Azovskoe" 13.5 12.2
+"Baltiyskoe Avsrtiyskoe" 470.0 6.6 Karp Som Lesch Treska
+"Barencevo" 628.1 34.7 Akula Som Lesch Karp
+"Severnoe" 725.5 34.5 Karas Okun Som Lesch
