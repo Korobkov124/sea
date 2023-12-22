@@ -2,26 +2,26 @@
 #include <iostream>
 #include <vector>
 #include "fish_additional.h"
+#include <vld.h>
 
-using namespace std;
 
 struct sea
 {
-    string name;
+    std:: string name;
 
     double depth;
 
     double salinity;
 
-    vector<sea> vect1;
+    std::vector<sea> vect1;
 
-    vector<fish> name_of_fish;
+    std::vector<fish> name_of_fish;
 
-    static vector<sea> read_sea(istream& ist);
+    static std::vector<sea> read_sea(std::istream& ist);
 
-    static string read_name_of_sea(istream& ist);
+    static std::string read_name_of_sea(std::istream& ist);
 
-    static void write(vector<sea> vect, ostream& out);
+    static const void write(const std::vector<sea> &vect, std::ostream& out);
 
-    static vector<sea> initialization(istream& ist);
+    static std::vector<sea> initialization(std::istream& ist);
 };
