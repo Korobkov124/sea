@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 #include <sstream>
 #include "pch.h"
 #include "CppUnitTest.h"
@@ -17,23 +20,23 @@ namespace Testspr3
         {
             struct TestCase 
             {
-                string input;
+                std:: string input;
                 int count;
             };
-            vector<TestCase> cases
+            std::vector<TestCase> cases
             {
                 TestCase{ "acb 123 a23bc ab401 124", 5 },
                 TestCase{ "123 4314 5124 124", 4 },
             };
-            for (int i = 0; i < cases.size(); i++)
+            for (size_t i = 0; i < cases.size(); i++)
             {
                 try
                 {
-                    stringstream sin{ cases[i].input };
+                    std::stringstream sin{ cases[i].input };
                     auto vect = fish::read_fish(sin);
                     Assert::IsFalse(vect.size() == cases[i].count);
                 }
-                catch (const exception&)
+                catch (const std::exception&)
                 {
                     Assert::Fail();
                 }
@@ -47,16 +50,16 @@ namespace Testspr3
                 double depth;
                 double salinity;
             };
-            vector<Values> cases
+            std::vector<Values> cases
             {
                 Values{ 59.5, 241.2 },
                 Values{ 241.5, 417.9 },
             };
             struct Vector_for_file
             {
-                string str;
+                std::string str;
             };
-            vector<Vector_for_file> ccases
+            std::vector<Vector_for_file> ccases
             {
                 Vector_for_file{ "\"Abcde\" 59 241 qr qwr rewr" },
                 Vector_for_file{ "\"Abcde\" 241 417 qr qwr rewr" },
@@ -65,12 +68,12 @@ namespace Testspr3
             {
                 try
                 {
-                    stringstream file{ ccases[i].str };
+                    std::stringstream file{ ccases[i].str };
                     const auto vector = sea::read_sea(file);
                     Assert::IsTrue(cases[i].depth != vector[0].depth);
                     Assert::IsTrue(cases[i].salinity != vector[0].salinity);
                 }
-                catch (const exception&)
+                catch (const std::exception&)
                 {
                     Assert::Fail();
                 }
@@ -84,16 +87,16 @@ namespace Testspr3
                 double depth;
                 double salinity;
             };
-            vector<Values> cases
+            std::vector<Values> cases
             {
                 Values{ 59, 241 },
                 Values{ 241, 417 },
             };
             struct Vector_for_file
             {
-                string str;
+                std::string str;
             };
-            vector<Vector_for_file> ccases
+            std::vector<Vector_for_file> ccases
             {
                 Vector_for_file{ "\"Abcde\" 59 241 qr qwr rewr" },
                 Vector_for_file{ "\"Abcde\" 241 417 qr qwr rewr" },
@@ -102,12 +105,12 @@ namespace Testspr3
             {
                 try
                 {
-                    stringstream file{ ccases[i].str };
+                    std::stringstream file{ ccases[i].str };
                     const auto vector = sea::read_sea(file);
                     Assert::IsTrue(cases[i].depth == vector[0].depth);
                     Assert::IsTrue(cases[i].salinity == vector[0].salinity);
                 }
-                catch (const exception&)
+                catch (const std::exception&)
                 {
                     Assert::Fail();
                 }
@@ -118,23 +121,23 @@ namespace Testspr3
         {
             struct TestCase
             {
-                string input;
+                std::string input;
                 int count;
             };
-            vector<TestCase> cases
+            std::vector<TestCase> cases
             {
                 TestCase{ "Fish Name Correct Values", 4 },
                 TestCase{ "FAsd asdqwr cxzcsdf qwr faasfqwr sacafa", 6},
             };
-            for(int i=0; i < cases.size(); i++)
+            for(size_t i = 0; i < cases.size(); i++)
             {
                 try 
                 {
-                    stringstream  sin{ cases[i].input };
+                    std::stringstream  sin{ cases[i].input };
                     auto vect = fish::read_fish(sin);
                     Assert::IsTrue(vect.size() == cases[i].count);
                 }
-                catch (const exception&)
+                catch (const std::exception&)
                 {
                     Assert::Fail();
                 }
