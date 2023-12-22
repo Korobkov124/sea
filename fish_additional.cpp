@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 #include "sea_additional.h"
 #include "fish_additional.h"
 #include <iostream>
@@ -5,11 +8,11 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+
 
 bool fish::is_valid_name_fish(const std::string& name)
 {
-    for (int i = 0; i < name.size(); i++)
+    for (size_t i = 0; i < name.size(); i++)
     {
         if (!(isalpha(name[i])))
         {
@@ -23,29 +26,23 @@ bool fish::is_valid_name_fish(const std::string& name)
     return true;
 }
 
- vector<fish> fish::read_fish(istream& ist)
+ std::vector<fish> fish::read_fish(std::istream& ist)
 {
     fish object1;
-    string buf;
-    int i = 1;
-    string nameofffish;
+    std::string buf;
+    size_t i = 1;
+    std::string nameofffish;
     getline(ist, buf);
-    if (buf.empty()) {
+    if (buf.empty())
+    {
         return {};
     }
-    try
+    if (is_valid_name_fish(buf))
     {
-        if (!fish::is_valid_name_fish(buf))
-        {
-            throw runtime_error("Некорректные данные!");
-        }
+        throw std::runtime_error("Некорректные данные!");
     }
-    catch (const exception& ex)
-    {
-        cout << ex.what() << endl;
-    }
-    vector<fish> vect1;
-    vector<fish> vect;
+    std::vector<fish> vect1;
+    std::vector<fish> vect;
     while (buf[i])
     {
         if (buf[i] == ' ')
@@ -53,7 +50,7 @@ bool fish::is_valid_name_fish(const std::string& name)
              object1.nameoffish = nameofffish;
              vect1.push_back(object1);
              i++;
-             nameofffish = "";
+             nameofffish.clear();
         }
         nameofffish += buf[i];
         i++;
@@ -67,7 +64,7 @@ bool fish::is_valid_name_fish(const std::string& name)
             }
             else
             {
-                cout << "Неккоректные данные! Проверьте вводимые поля рыб!";
+                std::cout << "Неккоректные данные! Проверьте вводимые поля рыб!";
                 return vect;
             }
         }
@@ -76,10 +73,10 @@ bool fish::is_valid_name_fish(const std::string& name)
             continue;
         }
     }
-    vector<fish> result;
-    for (size_t i = 0; i < vect1.size(); ++i) {
-        if (!vect1[i].nameoffish.empty()) {
-            result.push_back(vect1[i]);
+    std::vector<fish> result;
+    for (size_t t = 0; t < vect1.size(); ++t) {
+        if (!vect1[t].nameoffish.empty()) {
+            result.push_back(vect1[t]);
         }
     }
     return result;
