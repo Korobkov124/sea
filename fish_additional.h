@@ -4,14 +4,13 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 
 struct fish
 {
-    string nameoffish;
+    std::string nameoffish;
 
-    static bool is_valid_name_fish(const string& name);
+    static bool is_valid_name_fish(const std::string& name);
 
-    static vector<fish> read_fish(istream& ist);
+    static std::vector<fish> read_fish(std::istream& ist);
 
 };
